@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#064e3b">
+<meta name="description" content="Quran Majeed — Quran, prayer times, Qibla, adhkar and more.">
+<title>Quran Majeed</title>
+<style>
+:root{--green:#064e3b;--green2:#087451;--mint:#dff4e8;--cream:#f7f8f2;--ink:#17372c;--muted:#6b8177;--line:#e1e9e2;--white:#fff;--gold:#d9b76e;--shadow:0 12px 35px #123b2910}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #8bd4b0;outline-offset:2px}
+.app{max-width:1120px;margin:auto;padding:22px 22px 100px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:20px;letter-spacing:-.5px}.brand-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:15px;background:var(--green);color:white;font-size:23px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.8px;color:var(--muted);font-weight:800}.location-pill{border:1px solid var(--line);background:white;border-radius:99px;padding:9px 13px;color:var(--ink);font-size:13px}
+.hero{background:linear-gradient(125deg,#064e3b,#087451);border-radius:27px;padding:27px;color:white;position:relative;overflow:hidden;box-shadow:var(--shadow)}.hero:after{content:"۞";position:absolute;right:14px;top:-50px;font-size:230px;opacity:.06;pointer-events:none}.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;align-items:center}.hero .eyebrow{color:#b5e5ce}.hero h1{font-size:clamp(27px,4vw,42px);line-height:1.12;letter-spacing:-1.5px;margin:10px 0}.hero p{color:#d8eee2;margin:0 0 18px}.date-line{font-size:13px;color:#c4e6d4}.next-label{color:#b5e5ce;font-size:12px;text-transform:uppercase;letter-spacing:1.4px;font-weight:800}.next-prayer{font-size:26px;font-weight:800;margin:4px 0}.countdown{font-size:13px;color:#d8eee2}.prayer-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:22px}.prayer-chip{background:#ffffff12;border:1px solid #ffffff20;border-radius:14px;padding:12px 10px}.prayer-chip.active{background:#d9f5e5;color:var(--green);border-color:#d9f5e5}.prayer-chip span{display:block;font-size:12px;opacity:.8}.prayer-chip strong{display:block;font-size:15px;margin-top:3px}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:28px 0 13px}.section-head h2{font-size:20px;letter-spacing:-.5px;margin:0}.subtle{color:var(--muted);font-size:13px}.btn{border:0;border-radius:12px;background:var(--green);color:white;padding:11px 15px;font-weight:700}.btn:hover{background:var(--green2)}.btn.light{background:var(--mint);color:var(--green)}.btn.ghost{background:white;border:1px solid var(--line);color:var(--ink)}.btn.small{padding:8px 11px;font-size:13px}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.quick-card{border:1px solid var(--line);border-radius:19px;padding:17px;background:white;text-align:left;box-shadow:var(--shadow);color:var(--ink)}.quick-card:hover{transform:translateY(-2px);border-color:#acd9bd}.quick-icon{width:39px;height:39px;border-radius:13px;display:grid;place-items:center;background:var(--mint);font-size:20px;margin-bottom:12px}.quick-card strong{display:block;font-size:15px}.quick-card small{display:block;color:var(--muted);margin-top:3px}
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:15px}.panel{background:white;border:1px solid var(--line);border-radius:21px;padding:19px;min-width:0;box-shadow:var(--shadow)}.panel h3{margin:0 0 6px;font-size:17px}.panel p{margin:0}.progress{height:7px;border-radius:9px;background:#edf2ed;overflow:hidden;margin:15px 0 9px}.progress>div{height:100%;background:#15966a;width:0%;transition:width .2s}.verse-arabic{font-size:27px;line-height:2;text-align:right;color:var(--green);margin:12px 0;direction:rtl}.verse-translation{color:#52685e}.muted{color:var(--muted)}.hidden{display:none!important}
+.view{margin-top:24px}.toolbar{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}.field{border:1px solid var(--line);background:white;border-radius:12px;padding:11px 12px;color:var(--ink);min-width:0}.search{flex:1;min-width:160px}.surah-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.surah-item{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:white;border-radius:15px;padding:13px;text-align:left;color:var(--ink);min-width:0}.surah-num{width:35px;height:35px;flex:0 0 35px;border-radius:12px;background:var(--mint);display:grid;place-items:center;color:var(--green);font-weight:800}.surah-info{min-width:0;flex:1}.surah-info strong,.surah-info small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.surah-info small{color:var(--muted);font-size:12px}.surah-ar{font-size:19px;color:var(--green)}.reader-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.ayah{padding:17px 0;border-bottom:1px solid var(--line)}.ayah:last-child{border-bottom:0}.ayah-head{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}.ayah-ar{font-size:25px;line-height:2.1;text-align:right;direction:rtl;color:#163e2f;margin:10px 0}.ayah-en{color:#4f665b}.icon-btn{border:1px solid var(--line);background:white;border-radius:10px;padding:7px 10px;color:var(--green)}.qibla-wrap{text-align:center;padding:15px 0}.compass{width:230px;height:230px;border:8px solid #e6f3eb;border-radius:50%;margin:20px auto;position:relative;background:radial-gradient(circle,#fff 0 56%,#f0f8f2 57%);display:grid;place-items:center}.compass:before{content:"N";position:absolute;top:8px;font-weight:800;color:var(--muted)}.compass-ring{position:absolute;inset:13px;border:1px dashed #b6d5c2;border-radius:50%}.needle{position:absolute;inset:0;transform:rotate(0deg);transition:transform .25s}.needle:before{content:"";position:absolute;top:29px;left:calc(50% - 3px);width:6px;height:82px;background:linear-gradient(to top,#c2d9cb 0 50%,#0b8057 50%);clip-path:polygon(50% 0,100% 100%,50% 84%,0 100%)}.kaaba{z-index:1;font-size:31px;background:white;border-radius:50%;padding:12px;box-shadow:0 3px 12px #0001}.degree{font-size:32px;font-weight:800;color:var(--green)}.tasbih-count{font-size:65px;font-weight:800;letter-spacing:-2px;color:var(--green);margin:12px}.tasbih-btn{width:170px;height:170px;border-radius:50%;border:9px solid #d7efdf;background:var(--green);color:white;font-size:20px;font-weight:800;box-shadow:0 8px 0 #043d2e}.tasbih-btn:active{transform:translateY(4px);box-shadow:0 4px 0 #043d2e}.adhkar-item{padding:15px 0;border-bottom:1px solid var(--line)}.adhkar-item:last-child{border:0}.adhkar-ar{direction:rtl;text-align:right;font-size:24px;line-height:2;color:var(--green);margin:7px 0}.adhkar-meta{font-size:12px;color:var(--muted)}
+.bottom-nav{position:fixed;z-index:5;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;justify-content:center;padding:8px max(10px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom));gap:4px}.nav-btn{border:0;background:transparent;color:#6a7e74;border-radius:13px;padding:8px 15px;min-width:70px;font-size:11px;font-weight:700}.nav-btn span{display:block;font-size:20px;line-height:1.2;margin-bottom:3px}.nav-btn.active{background:var(--mint);color:var(--green)}
+.notice{padding:12px 14px;border-radius:13px;background:#fff8e7;color:#6c5625;font-size:13px;margin:12px 0}.success{background:var(--mint);color:var(--green)}.empty{padding:28px;text-align:center;color:var(--muted)}.footer{text-align:center;color:var(--muted);font-size:12px;padding:26px 0 10px}.checkline{display:flex;align-items:center;gap:8px;margin:10px 0}.checkline input{accent-color:var(--green);width:18px;height:18px}
+@media(max-width:760px){.app{padding:15px 14px 100px}.hero{padding:21px}.hero-grid{grid-template-columns:1fr}.prayer-strip{gap:5px}.prayer-chip{padding:10px 6px}.prayer-chip strong{font-size:13px}.prayer-chip span{font-size:10px}.quick-grid{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:1fr}.surah-list{grid-template-columns:1fr}.location-pill{font-size:11px;padding:8px}.nav-btn{padding:8px 10px;min-width:56px}.nav-btn span{font-size:19px}.section-head{margin-top:23px}}
+@media(min-width:761px){.bottom-nav{gap:14px}.nav-btn{min-width:100px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">۞</div><div>Quran Majeed<div class="eyebrow">Your daily companion</div></div></div>
+    <button class="location-pill" id="locationBtn">⌖ Set my location</button>
+  </header>
+
+  <main id="homeView" class="view">
+    <section class="hero">
+      <div class="hero-grid">
+        <div><div class="eyebrow">Assalamu alaikum</div><h1>Make space for<br>what matters.</h1><p>Your Quran, prayers, and daily remembrance — together.</p><div class="date-line" id="dateLine">Loading today's date…</div></div>
+        <div><div class="next-label">Next prayer</div><div class="next-prayer" id="nextPrayer">Set location</div><div class="countdown" id="countdown">Allow location to calculate prayer times.</div><div style="margin-top:14px"><button class="btn light" onclick="showView('prayer')">View prayer times ↗</button></div></div>
+      </div>
+      <div class="prayer-strip" id="prayerStrip">
+        <div class="prayer-chip"><span>Fajr</span><strong>—:—</strong></div><div class="prayer-chip"><span>Dhuhr</span><strong>—:—</strong></div><div class="prayer-chip"><span>Asr</span><strong>—:—</strong></div><div class="prayer-chip"><span>Maghrib</span><strong>—:—</strong></div><div class="prayer-chip"><span>Isha</span><strong>—:—</strong></div>
+      </div>
+    </section>
+
+    <div class="section-head"><h2>Your essentials</h2><span class="subtle">A little every day</span></div>
+    <section class="quick-grid">
+      <button class="quick-card" onclick="showView('quran')"><div class="quick-icon">☾</div><strong>Read Quran</strong><small>114 surahs</small></button>
+      <button class="quick-card" onclick="showView('qibla')"><div class="quick-icon">⌖</div><strong>Find Qibla</strong><small>Direction to Makkah</small></button>
+      <button class="quick-card" onclick="showView('tasbih')"><div class="quick-icon">◉</div><strong>Tasbih</strong><small>Keep your dhikr</small></button>
+      <button class="quick-card" onclick="showView('adhkar')"><div class="quick-icon">✧</div><strong>Daily adhkar</strong><small>Remember Allah</small></button>
+    </section>
+
+    <div class="section-head"><h2>Continue your journey</h2><button class="btn ghost small" onclick="showView('quran')">Browse surahs</button></div>
+    <section class="layout">
+      <div class="panel"><div class="eyebrow">A verse to reflect on</div><div class="verse-arabic">فَإِنَّ مَعَ الْعُسْرِ يُسْرًا</div><p class="verse-translation">“For indeed, with hardship comes ease.”</p><p class="subtle" style="margin-top:8px">Surah Ash-Sharh · 94:5</p></div>
+      <div class="panel"><h3>Your saved ayahs</h3><p class="subtle">Keep meaningful verses close to you.</p><div class="progress"><div id="savedProgress" style="width:0%"></div></div><strong id="savedCount">0 saved verses</strong><div style="margin-top:13px"><button class="btn light small" onclick="showView('saved')">Open bookmarks</button></div></div>
+    </section>
+    <div class="section-head"><h2>Ramadan & Hijri calendar</h2></div>
+    <section class="panel" id="hijriPanel"><h3 id="hijriTitle">Islamic calendar</h3><p class="subtle" id="hijriText">Loading Hijri date…</p><div id="ramadanContent" style="margin-top:13px"></div></section>
+  </main>
+
+  <main id="prayerView" class="view hidden">
+    <div class="section-head"><h2>Prayer times</h2><span class="subtle" id="prayerDate"></span></div>
+    <section class="panel"><h3 id="prayerLocation">Your local prayer schedule</h3><p class="subtle">Times are calculated using the ISNA method. Your local mosque may use slightly different times.</p><div id="fullPrayerList" style="margin-top:12px"><div class="empty">Tap “Set my location” to load your prayer times.</div></div><div class="toolbar"><button class="btn" id="enableAlerts">Enable prayer notifications</button><button class="btn ghost" id="refreshPrayer">Refresh times</button></div><div class="notice">Notifications can be shown while this page is open. A static GitHub Pages site cannot guarantee alerts when your browser is closed.</div></section>
+  </main>
+
+  <main id="quranView" class="view hidden">
+    <div class="section-head"><h2 id="quranHeading">The Holy Quran</h2><span class="subtle">114 surahs</span></div>
+    <div class="toolbar" id="quranToolbar"><input class="field search" id="surahSearch" placeholder="Search surah name or number…" aria-label="Search surahs"></div>
+    <div id="surahList" class="surah-list"><div class="empty">Loading the surah list…</div></div>
+    <div id="reader" class="panel hidden" style="margin-top:15px"></div>
+  </main>
+
+  <main id="qiblaView" class="view hidden">
+    <div class="section-head"><h2>Qibla direction</h2><span class="subtle">Face the Kaaba</span></div>
+    <section class="panel qibla-wrap"><p class="subtle">Allow location access to calculate the direction from where you are.</p><div class="compass"><div class="compass-ring"></div><div class="needle" id="needle"></div><div class="kaaba">🕋</div></div><div class="degree" id="qiblaDegree">—°</div><p id="qiblaMessage" class="subtle" style="margin:7px 0 15px">Location is needed to find Qibla.</p><button class="btn" id="compassBtn">Enable device compass</button><div class="notice">Hold your phone flat and away from metal or magnets. Compass support varies by device and browser; if unavailable, use the displayed bearing with a physical compass.</div></section>
+  </main>
+
+  <main id="savedView" class="view hidden">
+    <div class="section-head"><h2>Saved ayahs</h2><span class="subtle">Your bookmarks</span></div>
+    <section class="panel"><div id="savedList"><div class="empty">No saved ayahs yet. Open a surah and tap the bookmark icon.</div></div></section>
+  </main>
+
+  <main id="tasbihView" class="view hidden">
+    <div class="section-head"><h2>Digital Tasbih</h2><span class="subtle">One remembrance at a time</span></div>
+    <section class="panel" style="text-align:center;padding:28px 18px"><label for="dhikrSelect" class="eyebrow">Choose your dhikr</label><div style="margin:9px 0 18px"><select id="dhikrSelect" class="field"><option value="سُبْحَانَ اللَّهِ">SubhanAllah</option><option value="الْحَمْدُ لِلَّهِ">Alhamdulillah</option><option value="اللَّهُ أَكْبَرُ">Allahu Akbar</option><option value="أَسْتَغْفِرُ اللَّهَ">Astaghfirullah</option><option value="لَا إِلَٰهَ إِلَّا اللَّهُ">La ilaha illallah</option></select></div><div id="tasbihArabic" class="verse-arabic" style="text-align:center">سُبْحَانَ اللَّهِ</div><div class="tasbih-count" id="tasbihCount">0</div><p class="subtle">Today's count · saved on this device</p><div style="margin:24px 0"><button class="tasbih-btn" id="countBtn">Tap to count</button></div><button class="btn ghost small" id="resetTasbih">Reset count</button></section>
+  </main>
+
+  <main id="adhkarView" class="view hidden">
+    <div class="section-head"><h2>Daily adhkar</h2><span class="subtle">Remembrance & reflection</span></div>
+    <div class="toolbar"><button class="btn light small" onclick="renderAdhkar('all')">All</button><button class="btn ghost small" onclick="renderAdhkar('morning')">Morning</button><button class="btn ghost small" onclick="renderAdhkar('evening')">Evening</button></div>
+    <section class="panel" id="adhkarList"></section>
+    <p class="subtle" style="margin-top:10px">Adhkar text and repetition counts are provided as a starter selection. Verify wording and references with a trusted source before publishing.</p>
+  </main>
+
+  <main id="calendarView" class="view hidden">
+    <div class="section-head"><h2>Hijri calendar</h2><span class="subtle">Islamic dates</span></div>
+    <section class="panel"><h3 id="calendarHijri">Hijri date</h3><p id="calendarGregorian" class="subtle"></p><div id="calendarRamadan" style="margin-top:14px"></div><button class="btn ghost" style="margin-top:14px" onclick="loadCalendar()">Refresh calendar</button></section>
+  </main>
+
+  <footer class="footer">Made with care for your daily worship · Quran Majeed<br>Prayer times and dates may differ from your local mosque.</footer>
+</div>
+
+<nav class="bottom-nav" aria-label="Main navigation">
+  <button class="nav-btn active" data-view="home"><span>⌂</span>Home</button>
+  <button class="nav-btn" data-view="quran"><span>☾</span>Quran</button>
+  <button class="nav-btn" data-view="prayer"><span>◷</span>Prayer</button>
+  <button class="nav-btn" data-view="qibla"><span>⌖</span>Qibla</button>
+  <button class="nav-btn" data-view="saved"><span>♡</span>Saved</button>
+  <button class="nav-btn" data-view="more"><span>•••</span>More</button>
+</nav>
+
+<script>
+const API='https://api.aladhan.com/v1';
+const QURAN='https://api.alquran.cloud/v1';
+const PRAYERS=[['Fajr','Fajr'],['Sunrise','Sunrise'],['Dhuhr','Dhuhr'],['Asr','Asr'],['Maghrib','Maghrib'],['Isha','Isha']];
+let coords=null, prayerData=null, qiblaBearing=null, heading=null, surahs=[], currentSurah=null, allAyahs=[];
+let bookmarks=JSON.parse(localStorage.getItem('qm-bookmarks')||'[]');
+let tasbih=Number(localStorage.getItem('qm-tasbih')||0);
+let notificationEnabled=localStorage.getItem('qm-notifications')==='yes';
+const $=id=>document.getElementById(id);
+function safeText(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function showView(name){
+  if(name==='more'){name='adhkar';}
+  document.querySelectorAll('main[id$="View"]').forEach(el=>el.classList.add('hidden'));
+  const target=$(name+'View'); if(target)target.classList.remove('hidden');
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.view===name||(name==='adhkar'||name==='tasbih'||name==='calendar')&&b.dataset.view==='more'));
+  if(name==='saved')renderBookmarks();
+  if(name==='adhkar')renderAdhkar('all');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.nav-btn').forEach(b=>b.addEventListener('click',()=>b.dataset.view==='more'?showMore():showView(b.dataset.view)));
+function showMore(){
+  const choice=prompt('Open: 1 = Tasbih, 2 = Daily adhkar, 3 = Hijri calendar','1');
+  if(choice==='1')showView('tasbih'); else if(choice==='2')showView('adhkar'); else if(choice==='3')showView('calendar');
+}
+function todayFormatted(){return new Intl.DateTimeFormat(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'}).format(new Date());}
+$('dateLine').textContent=todayFormatted();
+function timeToMinutes(t){const m=String(t||'').match(/(\d{1,2}):(\d{2})/);return m?Number(m[1])*60+Number(m[2]):0;}
+function cleanTime(t){return String(t||'—').split(' ')[0];}
+async function setLocation(){
+  if(!navigator.geolocation){alert('Your browser does not support location.');return;}
+  $('locationBtn').textContent='Finding location…';
+  navigator.geolocation.getCurrentPosition(async pos=>{
+    coords={lat:pos.coords.latitude,lon:pos.coords.longitude};
+    localStorage.setItem('qm-location',JSON.stringify(coords));
+    $('locationBtn').textContent='⌖ Location set';
+    await Promise.allSettled([loadPrayerTimes(),loadQibla(),loadCalendar()]);
+  },err=>{
+    $('locationBtn').textContent='⌖ Set my location';
+    alert('Location was not available. Please allow location access in your browser, then try again. You can also use the app without location, but prayer times and Qibla need it.');
+  },{enableHighAccuracy:true,timeout:12000,maximumAge:300000});
+}
+$('locationBtn').addEventListener('click',setLocation);
+async function loadPrayerTimes(){
+  if(!coords){$('nextPrayer').textContent='Set location';return;}
+  try{
+    const url=`${API}/timings?latitude=${coords.lat}&longitude=${coords.lon}&method=2`;
+    const res=await fetch(url);if(!res.ok)throw new Error('Prayer API unavailable');
+    const json=await res.json();if(json.code!==200)throw new Error('Prayer API error');
+    prayerData=json.data; const t=prayerData.timings;
+    const names=['Fajr','Dhuhr','Asr','Maghrib','Isha'];
+    const now=new Date();const currentM=now.getHours()*60+now.getMinutes();
+    let next=names.find(n=>timeToMinutes(t[n])>currentM);
+    let nextDate=new Date(now);
+    if(!next){next='Fajr';nextDate.setDate(nextDate.getDate()+1);}
+    $('nextPrayer').textContent=next;
+    const nextM=timeToMinutes(t[next]);let delta=nextM-currentM;if(delta<=0)delta+=1440;
+    $('countdown').textContent=`${cleanTime(t[next])} · ${Math.floor(delta/60)}h ${delta%60}m to go`;
+    $('prayerDate').textContent=prayerData.date.readable||todayFormatted();
+    $('prayerLocation').textContent=`Prayer schedule · ${prayerData.meta?.timezone||'local time'}`;
+    $('prayerStrip').innerHTML=names.map(n=>`<div class="prayer-chip ${n===next?'active':''}"><span>${n}</span><strong>${safeText(cleanTime(t[n]))}</strong></div>`).join('');
+    $('fullPrayerList').innerHTML=PRAYERS.map(([label,key])=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)"><span>${label}</span><strong>${safeText(cleanTime(t[key]))}</strong></div>`).join('');
+    if(notificationEnabled)scheduleOpenPageNotifications();
+    if(!localStorage.getItem('qm-alert-note')){$('fullPrayerList').insertAdjacentHTML('beforeend','<p class="subtle" style="margin-top:12px">Tip: enable notifications below to get reminders while this page is open.</p>');}
+  }catch(e){$('fullPrayerList').innerHTML='<div class="notice">Could not load prayer times. Check your internet connection and refresh.</div>';$('countdown').textContent='Could not load prayer times.';}
+}
+$('refreshPrayer').addEventListener('click',loadPrayerTimes);
+$('enableAlerts').addEventListener('click',async()=>{
+  if(!('Notification'in window)){alert('This browser does not support web notifications.');return;}
+  const permission=await Notification.requestPermission();
+  if(permission==='granted'){notificationEnabled=true;localStorage.setItem('qm-notifications','yes');localStorage.setItem('qm-alert-note','yes');alert('Notifications enabled. Prayer reminders can run while this page remains open.');scheduleOpenPageNotifications();}
+  else alert('Notifications were not allowed. You can enable them in your browser site settings.');
+});
+let notifiedToday={};
+function scheduleOpenPageNotifications(){
+  if(!notificationEnabled||!prayerData||!('Notification'in window)||Notification.permission!=='granted')return;
+  const names=['Fajr','Dhuhr','Asr','Maghrib','Isha'];const now=new Date();
+  names.forEach(n=>{
+    const [hh,mm]=cleanTime(prayerData.timings[n]).split(':').map(Number);
+    if(now.getHours()===hh&&now.getMinutes()===mm&&!notifiedToday[n+now.toDateString()]){
+      new Notification('Quran Majeed · '+n,{body:'It is time for '+n+'. May Allah accept your prayers.'});
+      notifiedToday[n+now.toDateString()]=true;
+    }
+  });
+}
+setInterval(scheduleOpenPageNotifications,20000);
+async function loadQibla(){
+  if(!coords)return;
+  try{
+    const res=await fetch(`${API}/qibla/${coords.lat}/${coords.lon}`);const j=await res.json();
+    qiblaBearing=Number(j.data.direction);
+    $('qiblaDegree').textContent=`${qiblaBearing.toFixed(1)}°`;
+    $('qiblaMessage').textContent=`Qibla bearing from true north · ${directionName(qiblaBearing)}`;
+    updateNeedle();
+  }catch(e){$('qiblaMessage').textContent='Could not load Qibla direction. Please try again.';}
+}
+function directionName(deg){return ['N','NE','E','SE','S','SW','W','NW'][Math.round(deg/45)%8];}
+function updateNeedle(){
+  if(qiblaBearing===null)return;
+  const rotation=qiblaBearing-(heading||0);
+  $('needle').style.transform=`rotate(${rotation}deg)`;
+}
+$('compassBtn').addEventListener('click',async()=>{
+  if(!coords){alert('Set your location first.');return;}
+  if(typeof DeviceOrientationEvent==='undefined'){alert('This device/browser does not provide a digital compass. The Qibla bearing is still shown above.');return;}
+  try{
+    if(typeof DeviceOrientationEvent.requestPermission==='function'){
+      const p=await DeviceOrientationEvent.requestPermission();if(p!=='granted')throw new Error('permission');
+    }
+    window.addEventListener('deviceorientationabsolute',orientationHandler,true);
+    window.addEventListener('deviceorientation',orientationHandler,true);
+    $('compassBtn').textContent='Compass enabled';
+  }catch(e){alert('Compass permission was not granted or this browser does not support it. Use the bearing shown on screen.');}
+});
+function orientationHandler(e){
+  if(typeof e.webkitCompassHeading==='number')heading=e.webkitCompassHeading;
+  else if(typeof e.alpha==='number')heading=360-e.alpha;
+  updateNeedle();
+}
+async function loadSurahList(){
+  try{
+    const r=await fetch(`${QURAN}/surah`);const j=await r.json();if(j.code!==200)throw new Error();
+    surahs=j.data;renderSurahList(surahs);
+  }catch(e){$('surahList').innerHTML='<div class="notice">Could not load Quran index. Check your internet connection and refresh this page.</div>';}
+}
+function renderSurahList(list){
+  $('surahList').innerHTML=list.map(s=>`<button class="surah-item" onclick="openSurah(${s.number})"><span class="surah-num">${s.number}</span><span class="surah-info"><strong>${safeText(s.englishName)}</strong><small>${safeText(s.englishNameTranslation)} · ${s.numberOfAyahs} ayahs</small></span><span class="surah-ar">${safeText(s.name)}</span></button>`).join('')||'<div class="empty">No surahs found.</div>';
+}
+$('surahSearch').addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase().trim();
+  renderSurahList(surahs.filter(s=>String(s.number)===q||s.englishName.toLowerCase().includes(q)||s.englishNameTranslation.toLowerCase().includes(q)||s.name.includes(q)));
+});
+async function openSurah(number){
+  $('reader').classList.remove('hidden');$('reader').innerHTML='<div class="empty">Loading Arabic text, translation, and recitation…</div>';
+  $('reader').scrollIntoView({behavior:'smooth',block:'start'});
+  try{
+    const r=await fetch(`${QURAN}/surah/${number}/editions/quran-uthmani,en.sahih`);const j=await r.json();
+    if(j.code!==200||!j.data||j.data.length<2)throw new Error('Quran data unavailable');
+    const arabic=j.data[0],english=j.data[1];currentSurah=surahs.find(s=>s.number===number);
+    allAyahs=arabic.ayahs.map((a,i)=>({number:a.number,numberInSurah:a.numberInSurah,text:a.text,translation:english.ayahs[i]?.text||''}));
+    $('reader').innerHTML=`<div class="reader-top"><div><div class="eyebrow">Surah ${number}</div><h2 style="margin:4px 0">${safeText(currentSurah?.englishName||arabic.name)} <span class="surah-ar">${safeText(arabic.name)}</span></h2><p class="subtle">${safeText(currentSurah?.englishNameTranslation||'')} · ${arabic.ayahs.length} ayahs</p></div><button class="btn light small" onclick="playSurah(${number})">▶ Play surah</button></div><audio id="surahAudio" controls preload="none" style="width:100%;margin-top:14px"></audio><div id="ayahsContainer">${allAyahs.map(a=>renderAyah(a)).join('')}</div>`;
+    $('surahAudio').src=`https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${number}.mp3`;
+  }catch(e){$('reader').innerHTML='<div class="notice">Could not load this surah right now. Please try again.</div>';}
+}
+function renderAyah(a){
+ const saved=bookmarks.some(b=>b.number===a.number);
+ return `<article class="ayah"><div class="ayah-head"><span>Ayah ${a.numberInSurah}</span><button class="icon-btn" onclick="toggleBookmark(${a.number})" aria-label="Bookmark ayah">${saved?'♥ Saved':'♡ Save'}</button></div><div class="ayah-ar">${safeText(a.text)}</div><div class="ayah-en">${safeText(a.translation)}</div><div style="margin-top:9px"><button class="icon-btn" onclick="playAyah(${a.number})">▶ Listen to ayah</button></div></article>`;
+}
+function playSurah(number){const a=$('surahAudio');if(a){a.play().catch(()=>alert('Tap play again to start audio.'));}}
+function playAyah(number){
+ const audio=new Audio(`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${number}.mp3`);
+ audio.play().catch(()=>alert('Could not play this ayah. Please check your connection.'));
+}
+function toggleBookmark(number){
+ const existing=bookmarks.findIndex(b=>b.number===number);
+ if(existing>=0)bookmarks.splice(existing,1);
+ else{
+   const a=allAyahs.find(x=>x.number===number);
+   const s=currentSurah;
+   if(a)bookmarks.push({number:a.number,numberInSurah:a.numberInSurah,text:a.text,translation:a.translation,surahNumber:s?.number||1,surahName:s?.englishName||'Quran'});
+ }
+ localStorage.setItem('qm-bookmarks',JSON.stringify(bookmarks));renderBookmarks();$('savedCount').textContent=`${bookmarks.length} saved verse${bookmarks.length===1?'':'s'}`;$('savedProgress').style.width=Math.min(100,bookmarks.length*10)+'%';
+ if(!$('reader').classList.contains('hidden')&&currentSurah)$('ayahsContainer').innerHTML=allAyahs.map(a=>renderAyah(a)).join('');
+}
+function renderBookmarks(){
+ $('savedCount').textContent=`${bookmarks.length} saved verse${bookmarks.length===1?'':'s'}`;$('savedProgress').style.width=Math.min(100,bookmarks.length*10)+'%';
+ $('savedList').innerHTML=bookmarks.length?bookmarks.map(b=>`<article class="ayah"><div class="ayah-head"><span>${safeText(b.surahName)} · Ayah ${b.numberInSurah}</span><button class="icon-btn" onclick="removeBookmark(${b.number})">Remove</button></div><div class="ayah-ar">${safeText(b.text)}</div><div class="ayah-en">${safeText(b.translation)}</div></article>`).join(''):'<div class="empty">No saved ayahs yet. Open a surah and tap the bookmark icon.</div>';
+}
+function removeBookmark(number){bookmarks=bookmarks.filter(b=>b.number!==number);localStorage.setItem('qm-bookmarks',JSON.stringify(bookmarks));renderBookmarks();}
+const adhkar=[
+ {type:'morning',ar:'أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ',en:'We have entered the morning and the dominion belongs to Allah.',count:1},
+ {type:'evening',ar:'أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ',en:'We have entered the evening and the dominion belongs to Allah.',count:1},
+ {type:'all',ar:'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ',en:'Glory be to Allah and praise be to Him.',count:100},
+ {type:'all',ar:'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',en:'I seek Allah’s forgiveness and repent to Him.',count:100},
+ {type:'all',ar:'لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ',en:'There is no deity except Allah alone, without partner.',count:1}
+];
+function renderAdhkar(filter='all'){
+ const items=adhkar.filter(a=>filter==='all'||a.type===filter||a.type==='all');
+ $('adhkarList').innerHTML=items.map((a,i)=>`<article class="adhkar-item"><div class="adhkar-meta">${a.type==='all'?'Daily dhikr':a.type==='morning'?'Morning dhikr':'Evening dhikr'} · Suggested count: ${a.count}</div><div class="adhkar-ar">${a.ar}</div><p>${a.en}</p></article>`).join('');
+}
+$('dhikrSelect').addEventListener('change',e=>{$('tasbihArabic').textContent=e.target.value;});
+function updateTasbih(){$('tasbihCount').textContent=tasbih;localStorage.setItem('qm-tasbih',String(tasbih));}
+$('countBtn').addEventListener('click',()=>{tasbih++;updateTasbih();});
+$('resetTasbih').addEventListener('click',()=>{if(confirm('Reset your Tasbih count to zero?')){tasbih=0;updateTasbih();}});
+async function loadCalendar(){
+ try{
+  const d=new Date();const date=`${String(d.getDate()).padStart(2,'0')}-${String(d.getMonth()+1).padStart(2,'0')}-${d.getFullYear()}`;
+  const r=await fetch(`${API}/gToH/${date}`);const j=await r.json();if(j.code!==200)throw new Error();
+  const h=j.data.hijri;const label=`${h.day} ${h.month.en} ${h.year} AH`;
+  $('hijriTitle').textContent=label;$('hijriText').textContent=`Today in the Hijri calendar · ${h.weekday.en}`;
+  $('calendarHijri').textContent=label;$('calendarGregorian').textContent=`Gregorian date: ${todayFormatted()}`;
+  const isRamadan=String(h.month.number)==='9';
+  const content=isRamadan?`<div class="success" style="padding:14px;border-radius:14px"><strong>Ramadan Mubarak 🌙</strong><p style="margin-top:5px">May Allah accept your fasting, prayers, and good deeds.</p></div><div class="checkline"><input type="checkbox" id="fastCheck"><label for="fastCheck">Mark today's fast complete</label></div><div class="checkline"><input type="checkbox" id="taraweehCheck"><label for="taraweehCheck">Mark Taraweeh complete</label></div>`:`<p class="subtle">${h.month.number===8?'Sha’ban is a time to prepare for Ramadan.':`Ramadan tracker will appear during Hijri month 9 (${h.month.en}).`}</p>`;
+  $('ramadanContent').innerHTML=content;$('calendarRamadan').innerHTML=content;
+ }catch(e){$('hijriText').textContent='Could not load the Hijri date. Check your connection.';$('calendarGregorian').textContent=todayFormatted();}
+}
+(function init(){
+  updateTasbih();renderBookmarks();renderAdhkar('all');loadSurahList();loadCalendar();
+  try{const stored=JSON.parse(localStorage.getItem('qm-location')||'null');if(stored&&Number.isFinite(stored.lat)&&Number.isFinite(stored.lon)){coords=stored;$('locationBtn').textContent='⌖ Location saved';loadPrayerTimes();loadQibla();}}catch(e){}
+  $('savedCount').textContent=`${bookmarks.length} saved verse${bookmarks.length===1?'':'s'}`;
+})();
+</script>
+</body>
+</html>
